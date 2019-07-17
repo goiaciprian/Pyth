@@ -6,13 +6,6 @@ import random as rd
 
 COLOURS = ["blue", "purple", "cyan", "white", "yellow", "green", "orange"]
 
-tt.shape("turtle")
-tt.speed(10)
-tt.pensize(6)
-tt.hideturtle()
-
-tt.Screen().bgcolor("turquoise")
-
 
 def vshape(size):
     tt.right(25)
@@ -38,8 +31,15 @@ def snowflake(size):
         tt.right(36)
 
 if __name__ == "__main__":
+
+    tt.shape("turtle")
+    tt.speed(10)
+    tt.pensize(6)
+    tt.hideturtle()
+    tt.Screen().bgcolor("black")
+
     try:
-        for x in range(0, 13):
+        for x in range(0, 3):
             size = rd.randint(5, 30)
             x = rd.randint(-400, 400)
             y = rd.randint(-400, 400)
@@ -49,4 +49,4 @@ if __name__ == "__main__":
             snowflake(size)
         tt.getscreen()._root.mainloop()
     except Terminator:
-        pass
+        print("exited with exit code 1")
