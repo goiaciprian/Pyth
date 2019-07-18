@@ -2,7 +2,6 @@ import speech_recognition as sr
 import win10toast
 from multiprocessing import Process
 
-# constant
 NOTIFICATION = win10toast.ToastNotifier()
 
 
