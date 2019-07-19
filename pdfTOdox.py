@@ -17,7 +17,7 @@ def writeDOCx(abs_path: str, content: str) -> bool:
         import pdb; pdb.set_trace()
         if docx.writable():
             try:
-                docx.write(cotent)
+                docx.write(content)
             except Exception:
                 return False
             else:
