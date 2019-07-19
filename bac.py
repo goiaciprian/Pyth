@@ -15,4 +15,3 @@ def check():
     print(soup)
 
 
-check()
