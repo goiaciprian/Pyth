@@ -5,17 +5,24 @@ from sys import argv
 
 from pdb import set_trace
 
+
 def openFile(path: str) -> str:
     # set_trace()
+    content = ''
     file = open(path, 'rb')
-    content = file.read()
     fileReader = PdfFileReader(file)
-    secondContent = fileReader.read(file)
+    for i in range(0, fileReader.getNumPages()):
+        pageObject = fileReader.getPage(i)
+        content += pageObject.extractText()
+        print(content)
     try:
-        return secondContent
+        return content
     finally:
         file.close()
 
 if __name__ == "__main__":
-    contentfile1 = openFile(argv[1])
-    print(contentfile1)
+    try:
+        contentfile1 = openFile(argv[1])
+        print(contentfile1)
+    except Exception as e:
+        print(e)
