@@ -8,17 +8,11 @@ from pdb import set_trace
 
 def openFile(path: str) -> str:
     # set_trace()
-    content = ''
-    file = open(path, 'rb')
-    fileReader = PdfFileReader(file)
-    for i in range(0, fileReader.getNumPages()):
-        pageObject = fileReader.getPage(i)
-        content += pageObject.extractText()
-        print(content)
-    try:
+    with open(path, 'rb') as file:
+        fileReader = PdfFileReader(file)
+        pageObject = fileReader.getPage(0)
+        content = pageObject.extractText()
         return content
-    finally:
-        file.close()
 
 if __name__ == "__main__":
     try:
