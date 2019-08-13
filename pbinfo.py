@@ -3,6 +3,7 @@
 from selenium import webdriver
 import sys
 
+path = ''
 if sys.platform == 'linux':
     path = '/mnt/d/vsc/drivers/chromedriver.exe'
 elif sys.platform == 'win32':
