@@ -60,28 +60,28 @@ def on_click(event):
             square.config(bg='brown')
             totalbombs = 0
             if row < 9:
-                if bombfield[row+1][column] == 1:
+                if bombfield[row + 1][column] == 1:
                     totalbombs += 1
             if row > 0:
-                if bombfield[row-1][column] == 1:
+                if bombfield[row - 1][column] == 1:
                     totalbombs += 1
             if column > 0:
-                if bombfield[row][column-1] == 1:
+                if bombfield[row][column - 1] == 1:
                     totalbombs += 1
             if column < 9:
-                if bombfield[row][column+1] == 1:
+                if bombfield[row][column + 1] == 1:
                     totalbombs += 1
             if row > 0 and column > 0:
-                if bombfield[row-1][column-1] == 1:
+                if bombfield[row - 1][column - 1] == 1:
                     totalbombs += 1
             if row < 9 and column < 9:
-                if bombfield[row+1][column-1] == 1:
+                if bombfield[row + 1][column - 1] == 1:
                     totalbombs += 1
             if row > 0 and column < 9:
-                if bombfield[row-1][column+1] == 1:
+                if bombfield[row - 1][column + 1] == 1:
                     totalbombs += 1
             if row < 9 and column > 0:
-                if bombfield[row+1][column+1] == 1:
+                if bombfield[row + 1][column + 1] == 1:
                     totalbombs += 1
             square.config(text=" " + str(totalbombs) + " ")
             squaresToClear -= 1

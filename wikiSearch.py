@@ -43,27 +43,6 @@ class NothingToSearchError(Exception):
         super(NothingToSearchError, self).__init__(self.message)
 
 
-class Node:
-    def __init__(self, data=None, next=None):
-        self.data = data
-        self.next = next
-
-
-class LinkedL:
-    def __init__(self):
-        self.current_node = None
-
-    def appendL(self, data):
-        node = Node(data, next=self.current_node)
-        self.current_node = node
-
-    def printL(self):
-        node = self.current_node
-        while node:
-            print(node.data)
-            node = node.next
-
-
 class WikiAnswer(object):
     '''
         Gets all the pages from wikipedia based on a user input
@@ -90,7 +69,6 @@ class WikiAnswer(object):
         self._finalSearch = ""
         self.__api__ = ""
         self._data = ""
-        self.linkedAnswer = LinkedL()
 
     @property
     def classword(self):
@@ -163,16 +141,10 @@ class WikiAnswer(object):
         for y, x in enumerate(data[3]):
             tupleList.append((data[1][y], x))
 
-        # TODO linklist for tupleList
-
-        for i in tupleList:
-            self.linkedAnswer.appendL(i)
-
         if debug:
             print('\n')
             pprint(tupleList)
             print('\n')
-            print(self.linkedAnswer.printL())
         return tupleList
 
 
@@ -235,7 +207,7 @@ class MainApp(tk.Tk):
         # answerFrame.pack(fill=tk.X, side=tk.BOTTOM)
 
         # Widgets for the top
-        SPACELABEL = tk.Label(searchFrame, text=' '*29, background='white')
+        SPACELABEL = tk.Label(searchFrame, text=' ' * 29, background='white')
         SPACELABEL.pack(side=tk.LEFT, padx=25)
 
         searchLabel = tk.Label(

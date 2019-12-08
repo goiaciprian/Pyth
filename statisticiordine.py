@@ -12,6 +12,7 @@ statisticiordine.out cu acel element.(in cazul de mai sus 24.)
 
 """
 
+
 def dec_out(functie):
 
     def wraper():
@@ -44,7 +45,6 @@ def func():
         print(content)
         count += 1
     return minim
-
 
 
 if __name__ == "__main__":
